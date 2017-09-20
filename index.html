@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -117,7 +117,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     motion: true,
@@ -318,6 +318,128 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/17/网站部署https笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/imgs/hai.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夜鹰">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/17/网站部署https笔记/" itemprop="url">网站部署https笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-17T15:22:45+08:00">
+                2017-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/17/网站部署https笔记/" class="leancloud_visitors" data-flag-title="网站部署https笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/auto-insurance-project-summary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -419,8 +541,8 @@
       
         
           
-            <p>一个有点久的项目，前不久做的前后端分离，虽然相比较技术还是有点落后，很小白，还是总结一下，毕竟路还是得一步步的走。<br>后台：整体架构是<code>spring</code>+<code>springMVC</code>，没有使用spring的注解功能，服务器原来是<code>jboss</code>后面切换成了<code>tomcat</code>，由于并发不高后台服务器就2台，使用了开源项目<a href="https://github.com/jcoleman/tomcat-redis-session-manager" target="_blank" rel="external">tomcat-redis-session-manager</a>持久化session到<code>redis</code>集群,、持久层是<code>mybatis</code>、连接池之前是<code>c3p0</code>后来老是挂就换成了<code>HikariCP</code>。项目过程中调用外部系统接口的地方很多，所以spring集成了<code>zookeeper</code>和<code>dubbo</code>缓解调用外部接口的负载，公司系统很多JDIN配置方面集成了百度的<code>disconf</code>。<br>前台：服务器<code>nginx</code>、前端技术属于刀耕火种的时代，<code>jquery</code>一撸到底。<br><strong>打包工具</strong><br>这个还是原来的打包工具：<code>ant</code>，因为这个项目工程包含三个子项目（客户系统、定时任务、后台），开发的时候这三个项目关联性强，所以在一个工程里面也方便开发。<br><strong>配置文件</strong><br>由于properties文件会因服务器环境或其他场景需要改动，是放在tomcat的conf目录下，具体可以使用spring的BeanFactoryPostProcessor类来进行加载，在XML文件中用${key}或者需要在相应的类文件中编写该key的setter方法，spring就会注入值了，具体代码如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"&gt;</div><div class="line">    &lt;property name="order" value="1" /&gt;</div><div class="line">      &lt;property name="ignoreUnresolvablePlaceholders" value="true" /&gt;&lt;!-- 忽略不可解析的 Placeholder --&gt;</div><div class="line">      &lt;property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" /&gt;&lt;!-- 可以从jvm虚拟机的参数中获得配置信息 --&gt;</div><div class="line">      &lt;property name="ignoreResourceNotFound" value="true" /&gt;&lt;!-- 忽略未找到的资源 --&gt;</div><div class="line">      &lt;property name="locations"&gt;</div><div class="line">        &lt;list&gt;</div><div class="line">          &lt;value&gt;file:$&#123;confPath&#125;/jndi.properties&lt;/value&gt;</div><div class="line">        &lt;/list&gt;</div><div class="line">      &lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure></p>
-<p>其中<em>confPath</em>变量是在tomcat的context.xml添加的环境变量，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Environment name=&quot;confPath&quot; value=&quot;$&#123;catalina.home&#125;/conf&quot; type=&quot;java.lang.String&quot; override=&quot;false&quot; /&gt;</div></pre></td></tr></table></figure></p>
+            <p>一个有点久的项目，前不久做的前后端分离，虽然相比较技术还是有点落后，很小白，还是总结一下，毕竟路还是得一步步的走。<br>后台：整体架构是<code>spring</code>+<code>springMVC</code>，没有使用spring的注解功能，服务器原来是<code>jboss</code>后面切换成了<code>tomcat</code>，由于并发不高后台服务器就2台，使用了开源项目<a href="https://github.com/jcoleman/tomcat-redis-session-manager" target="_blank" rel="external">tomcat-redis-session-manager</a>持久化session到<code>redis</code>集群,、持久层是<code>mybatis</code>、连接池之前是<code>c3p0</code>后来老是挂就换成了<code>HikariCP</code>。项目过程中调用外部系统接口的地方很多，所以spring集成了<code>zookeeper</code>和<code>dubbo</code>缓解调用外部接口的负载，公司系统很多JDIN配置方面集成了百度的<code>disconf</code>。<br>前台：服务器<code>nginx</code>、前端技术属于刀耕火种的时代，<code>jquery</code>一撸到底。<br><strong>打包工具</strong><br>这个还是原来的打包工具：<code>ant</code>，因为这个项目工程包含三个子项目（客户系统、定时任务、后台），开发的时候这三个项目关联性强，所以在一个工程里面也方便开发。<br><strong>配置文件</strong><br>由于properties文件会因服务器环境或其他场景需要改动，是放在tomcat的conf目录下，具体可以使用spring的BeanFactoryPostProcessor类来进行加载，在XML文件中用${key}或者需要在相应的类文件中编写该key的setter方法，spring就会注入值了，具体代码如下：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"&gt;</div><div class="line">    &lt;property name="order" value="1" /&gt;</div><div class="line">    &lt;property name="ignoreUnresolvablePlaceholders" value="true" /&gt;&lt;!-- 忽略不可解析的 Placeholder --&gt;</div><div class="line">    &lt;property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" /&gt;&lt;!-- 可以从jvm虚拟机的参数中获得配置信息 --&gt;</div><div class="line">    &lt;property name="ignoreResourceNotFound" value="true" /&gt;&lt;!-- 忽略未找到的资源 --&gt;</div><div class="line">    &lt;property name="locations"&gt;</div><div class="line">        &lt;list&gt;</div><div class="line">          &lt;value&gt;file:$&#123;confPath&#125;/jndi.properties&lt;/value&gt;</div><div class="line">        &lt;/list&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure></p>
+<p>其中<strong>confPath</strong>变量是在tomcat的context.xml添加的环境变量，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;Environment name=&quot;confPath&quot; value=&quot;$&#123;catalina.home&#125;/conf&quot; type=&quot;java.lang.String&quot; override=&quot;false&quot; /&gt;</div></pre></td></tr></table></figure></p>
 <p>后来由于服务器环境太多以及项目配置文件也增多，每次配置调整起来都比较麻烦，还容易出错，所以AMC系统与disconf系统做了深度整合，提供集中式配置管理服务，基于zookeeper实现对配置更改的实时推送，配置更改自动reload，需要在servlet.xml中添加一下代码，如：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;context:component-scan base-package="com.baidu" /&gt;</div><div class="line">&lt;aop:aspectj-autoproxy proxy-target-class="true" /&gt;</div><div class="line">&lt;context:annotation-config /&gt;</div><div class="line">&lt;bean id="disconfMgrBean" class="com.baidu.disconf.client.DisconfMgrBean" destroy-method="destroy"&gt;</div><div class="line">    &lt;property name="scanPackage" value="com.baidu.disconf" /&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line">&lt;bean id="disconfMgrBean2" class="com.baidu.disconf.client.DisconfMgrBeanSecond"</div><div class="line">    init-method="init" destroy-method="destroy"&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line">&lt;bean id="configproperties_disconf" class="com.baidu.disconf.client.addons.properties.ReloadablePropertiesFactoryBean"&gt;</div><div class="line">   &lt;property name="locations"&gt;</div><div class="line">       &lt;list&gt;</div><div class="line">          &lt;value&gt;jndi.properties&lt;/value&gt;</div><div class="line">        &lt;/list&gt;</div><div class="line">   &lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div><div class="line">&lt;bean id="propertyConfigurer_disconf" class="com.baidu.disconf.client.addons.properties.ReloadingPropertyPlaceholderConfigurer"&gt;</div><div class="line">    &lt;property name="ignoreResourceNotFound" value="true" /&gt;</div><div class="line">    &lt;property name="ignoreUnresolvablePlaceholders" value="true" /&gt;</div><div class="line">    &lt;property name="propertiesArray"&gt;</div><div class="line">        &lt;list&gt;</div><div class="line">          &lt;ref bean="configproperties_disconf" /&gt;</div><div class="line">        &lt;/list&gt;</div><div class="line">    &lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure></p>
 <p>那么业务系统如何连接AMC？<br>需要在项目的classpath(源文件下或者src下)路径下添加两个文件名字必须一样（disconf.properties、disconf_sys.properties）。<br>disconf_sys.properties文件内容说明如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#获取配置文件根节点</div><div class="line">disconf.conf_server_store_action=/api/config</div><div class="line">#获取zookeeper地址</div><div class="line">disconf.conf_server_zoo_action=/api/zoo</div><div class="line">#获取远程主机个数的URL</div><div class="line">disconf.conf_server_master_num_action=/api/getmasterinfo</div><div class="line"># 下载文件夹, 远程文件下载后会放在这里</div><div class="line">disconf.local_download_dir=/opt/server/conf</div></pre></td></tr></table></figure></p>
 <p>disconf.properties文件内容即说明如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#是否从云端下载配置 </div><div class="line">disconf.enable.remote.conf=true</div><div class="line">#忽略哪些分布式配置</div><div class="line">disconf.ignore=test</div><div class="line">#获取远程配置 重试次数，默认是3次</div><div class="line">disconf.conf_server_url_retry_times=3</div><div class="line">#获取远程配置 重试时休眠时间，默认是2秒</div><div class="line">disconf.conf_server_url_retry_sleep_seconds=2</div><div class="line">#让下载文件夹放在 classpath目录 下</div><div class="line">disconf.enable_local_download_dir_in_class_path=true</div><div class="line">#配置文件服务器 HOST</div><div class="line">disconf.conf_server_host=10.0.0.0</div><div class="line">#版本</div><div class="line">disconf.version=1_0_0</div><div class="line">#系统名称</div><div class="line">disconf.app=amc</div><div class="line">#部署环境</div><div class="line">disconf.env=sit</div><div class="line">#用户指定的 下载文件夹, 远程文件下载后会放在这里</div><div class="line">disconf.user_define_download_dir=/opt/server/conf</div></pre></td></tr></table></figure></p>
@@ -1499,7 +1621,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1521,7 +1643,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1598,7 +1720,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 
